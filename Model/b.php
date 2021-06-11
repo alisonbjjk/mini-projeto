@@ -1,9 +1,9 @@
 <?php
 
-$s = "127.0.0.1";
+$s = "31.170.166.145";
 ////usuário do banco de dados
-$u = "root";
+$u = "u898725155_mini_projeto";
 ////senha do banco de dados
-$p = "";
+$p = "@Mini-projeto123$";
 ////nome da base de dados
-$db = "mini_projeto";
+$db = "u898725155_mini_projeto";
