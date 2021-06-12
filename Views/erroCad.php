@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="br">
-<META HTTP-EQUIV="REFRESH" CONTENT="2;URL=cadastro.php">
+<META HTTP-EQUIV="REFRESH" CONTENT="2;URL=../index.php">
 </META>
 
 <head>

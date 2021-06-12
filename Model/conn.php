@@ -22,7 +22,6 @@ function sair()
     session_destroy();
     // Redirecionamento para a tela de Login.
     header("Location: ../index.php");
-    
 }
 
 // Função de consulta para logar usuário com consulta a permição de Admin.
@@ -41,14 +40,19 @@ function loginUser($email, $senha)
 }
 
 // Cadastro de Usuários.
-function cadastroUser($nome, $cpf, $rg, $email, $doc)
+function cadastroProces($nome, $cpf, $rg, $email, $doc)
 {
     global $conn;
+    $sql = ("INSERT INTO tb_processos(`nm_user`, `cpf_user`, `rg_user`, `email_user`, `documentos`) 
+        VALUES ('$nome', '$cpf', '$rg', '$email', '$doc');");
 
-    $conn->query(
-        ("INSERT INTO tb_processos(`nm_user`, `cpf_user`, `rg_user`, `email_user`, `documentos`) 
-        VALUES ('$nome', '$cpf', '$rg', '$email', '$doc');")
-    ) or die("Erro no select autentica " . print_r($conn->errorInfo()));
+    $query = $conn->query($sql) or die("Erro Autenticação!");
+    $array = $query->fetch(PDO::FETCH_ASSOC);
+    if ($array <> 0) {
+        header('Location ../index.php');
+    } else {
+        header('Location ../Views/erro.php');
+    }
 }
 
 // Consultando dados para datatable.
@@ -78,7 +82,6 @@ function dataTable()
                     $id = $array['id'];
                     $_SESSION['idteste'] = $array['id'];
                     $val = ('<a href="teste.php/' . $id . '"><button type="button">Validar</button></td></a>');
-                   
                 }
 
                 echo ('<tr style="text-align: left;">

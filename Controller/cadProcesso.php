@@ -18,14 +18,6 @@ if(isset($_POST['g-recaptcha-response'])){
 }
 if ($validaCaptcha == true) {
 
-cadastroUser($_POST['nomeUser'], $_POST['cpfUser'], $_POST['rgUser'], 
-$_POST['emailUser'], $_POST['docUser']);
-
-}
-
-if ($_SESSION['logado'] == 1) {
-    header("Location: ../index.php");
-    
-} else {
-    header("Location: ../Views/erroCad.php");
+cadastroProces($_POST['nomeUser'], $_POST['cpfUser'], $_POST['rgUser'], $_POST['emailUser'], $_POST['docUser']);
+header('Location: ../index.php');
 }
