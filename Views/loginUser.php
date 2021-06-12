@@ -1,5 +1,7 @@
 <?php
 session_start();
+session_destroy();
+session_start();
 include_once('../Controller/chaveCaptcha.php');
 ?>
 <!DOCTYPE html>
@@ -50,6 +52,8 @@ include_once('../Controller/chaveCaptcha.php');
 					<div>
 						<a>Ainda não é cadastrado?</a><br>
 						<a style="margin-left: auto; margin-right: auto;" href="./cadastro.php">Cadastre-se aqui!</a>
+						<br>
+						<a href="../index.php">Voltar para a tela inicial...</a>
 					</div>
 					<div style="margin-left: 60%; margin-top: 5px;" class="container-login100-form-btn">
 						<button class="login100-form-btn">

@@ -1,5 +1,4 @@
 <?php
-    //session_start();
-    include ("../Controller/conn.php");
+    session_start();
+    include ("../Model/conn.php");
     sair();
-?>

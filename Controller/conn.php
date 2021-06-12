@@ -35,29 +35,27 @@ function loginUser($email, $senha)
     if ($array <> null) {
         $_SESSION['admin'] = $array['adminUser'];
     } else {
-            sair();
-        }
+        sair();
     }
+}
 
 // Cadastro de Usuários.
-function cadastroUser($login, $senha, $cpf, $rg, $telefone, $email)
+function cadastroUser($nome, $cpf, $rg, $email, $telefone, $senha)
 {
     global $conn;
 
     $sql_auth =
-        ("INSERT INTO teste (`nomeUser`, `cfpUser`, `rgUser`, `telUser`, `emailUser`, `loginUser`, `senhaUser`) 
-    VALUES ('$login', '$senha');");
+        ("INSERT INTO usuario (`nomeUser`, `cpfUser`, `rgUser`, `telUser`, `emailUser`, `senhaUser`) 
+    VALUES ('$nome', '$cpf', '$rg', '$telefone', '$senha', '$senha');");
 
     $query = $conn->query($sql_auth) or die("Erro no select autentica " . print_r($conn->errorInfo()));
-
-    $array = $query->fetch(PDO::FETCH_ASSOC);
 }
 
 // Consultando dados para datatable.
 function dataTable()
 {
     global $conn;
-    if ($query = $conn->query("SELECT * FROM usuario;") or die("Erro no select nome ")) {
+    if ($query = $conn->query("SELECT * FROM tb_processos;") or die("Erro no select nome ")) {
 
         $array = array();
         $cont = 0;
@@ -78,7 +76,9 @@ function dataTable()
             <td>' . $rg . '</td>
             <td>' . $email . '</td>
             <td>' . $dt . '</td>
-            <td><a href="' . $id . '"><button  type="button">Download</button></a></td>
+            <td>
+            <a href="processos.php"><button  type="button">Ver Processo</button></a>
+            <a href="teste"><button type="button">Validar</button></td></a>
             </tr>');
             }
         }

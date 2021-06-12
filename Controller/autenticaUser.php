@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("conn.php");
+include_once("../Model/conn.php");
 
 $validaCaptcha = false;
 
@@ -23,6 +23,6 @@ if (isset($_POST['g-recaptcha-response'])) {
         $_SESSION['logado'] = '1';
         header('Location: ../Views/telaUser.php');
     } else {
-        header("Location: telaUser.php");
+        header("Location: ../Views/erroSenha.php");
     }
 }
