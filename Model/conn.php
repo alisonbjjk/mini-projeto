@@ -64,27 +64,23 @@ function dataTable()
         $array = array();
         $cont = 0;
         while ($array = $query->fetch(PDO::FETCH_ASSOC)) {
+
+            $id = $array['id'];
+
             if ($cont % 2 == 0) {
                 $status = $array['status'];
-
-                $id = $array['id'];
-
                 if ($status == '0') {
                     $status = "Pendente";
-                    $id = $array['id'];
-                    $_SESSION['idteste'] = $array['id'];
-                    $val = ('<a href="teste.php/' . $id . '"><button type="button">Validar</button></td></a>');
+                    $val = ('<a href="testeval.php/idcli=' . $id . '"><button type="button">Validar</button></td></a>');
                 } elseif ($status == '1') {
                     $status = "Valido";
                     $val = "";
                 } else {
                     $status = "Negado";
-                    $id = $array['id'];
-                    $_SESSION['idteste'] = $array['id'];
-                    $val = ('<a href="teste.php/' . $id . '"><button type="button">Validar</button></td></a>');
+                    $val = ('<a href="testeval.php/idcli=' . $id . '"><button type="button">Validar</button></td></a>');
                 }
 
-                echo ('<tr style="text-align: left;">
+                $tabela = ('<tr style="text-align: left;">
             <td style="text-align: center;">' . $array['id'] . '</td>
             <td>' . $array['nm_user'] . '</td>
             <td>' . $array['cpf_user'] . '</td>
@@ -94,12 +90,22 @@ function dataTable()
             <td>' . $array['documentos'] . '</td>
             <td>' . $status . '</td>
             <td style="text-align: center;"><a href="processos.php">
-            <button  type="button">Ver Processos</button></a> <a>' . $val . '</a></tr>');
+            <button type="button">Ver Processos</button></a> 
+            <div>' . $val . '</div>
+            </tr>');
             }
+            echo $tabela;
         }
     }
 }
 
 function validarProc($id)
 {
+    global $conn;
+    $slq_validar = ("UPDATE `tb_processos` SET `status` = '2' WHERE `tb_processos`.`id` = '. $id .';");
+
+    var_dump($slq_validar);
+    die;
+    $query = $conn->query($slq_validar) or die("Erro Autenticação!");
+
 }
