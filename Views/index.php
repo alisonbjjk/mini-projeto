@@ -4,14 +4,14 @@ include_once('../Controller/chaveCaptcha.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt">
-</html>
+
 <head>
 	<title>Tela de Procesos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="../estilo/icon/login.png" />
 	<link rel="stylesheet" type="text/css" href="../estilo/css/util.css">
 	<link rel="stylesheet" type="text/css" href="../estilo/css/main.css">
+    <link rel="shortcut icon" href="../estilo/icon/login.png" />
 	<?php
 	include_once('../estilo/linksLogin.php');
 	?>
