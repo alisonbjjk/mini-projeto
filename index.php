@@ -18,7 +18,6 @@
         <div style="background-color: #848484" class="container-login100">
             <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
                 <div style="margin-left: auto; margin-right: auto; margin-top: auto;" class="container-login100-form-btn">
-                    <!-- <a href="Views/loginUser.php"> -->
                     <form action="Views/loginUser.php"><button style="margin-right: 10px;" class="login100-form-btn">Sou Adminstrador</button></form>
 
                     <form action="Views/index.php"><button style="margin-left: 10px;" class="login100-form-btn">Solicitar Documentação</button></form>
